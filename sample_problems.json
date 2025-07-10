@@ -1,0 +1,242 @@
+[
+  {
+    "title": "Palindrome Number",
+    "description": "Given an integer x, return true if x is a palindrome, and false otherwise. A number is a palindrome when it reads the same backward as forward. For example, 121 is a palindrome while 123 is not.",
+    "difficulty": "easy",
+    "testcases": [
+      {
+        "input": "121",
+        "output": "true"
+      },
+      {
+        "input": "-121",
+        "output": "false"
+      },
+      {
+        "input": "10",
+        "output": "false"
+      },
+      {
+        "input": "12321",
+        "output": "true"
+      },
+      {
+        "input": "0",
+        "output": "true"
+      }
+    ],
+    "codeStubs": [
+      {
+        "language": "PYTHON",
+        "startSnippet": "class Solution:\n",
+        "endSnippet": "",
+        "userSnippet": "    def isPalindrome(self, x):\n        # your code here"
+      },
+      {
+        "language": "JAVA",
+        "startSnippet": "public class Solution {",
+        "endSnippet": "}",
+        "userSnippet": "    public boolean isPalindrome(int x) {\n        // your code here\n    }"
+      },
+      {
+        "language": "CPP",
+        "startSnippet": "#include <string>\nclass Solution {\npublic:",
+        "endSnippet": "\n};",
+        "userSnippet": "    bool isPalindrome(int x) {\n        // your code here\n    }"
+      }
+    ],
+    "editorial": "Convert the number to string and check if it reads the same forward and backward, or use mathematical approach by reversing the number."
+  },
+  {
+    "title": "Remove Duplicates from Sorted Array",
+    "description": "Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Return the number of unique elements in nums.",
+    "difficulty": "easy",
+    "testcases": [
+      {
+        "input": "[1,1,2]",
+        "output": "2"
+      },
+      {
+        "input": "[0,0,1,1,1,2,2,3,3,4]",
+        "output": "5"
+      },
+      {
+        "input": "[1,2,3]",
+        "output": "3"
+      },
+      {
+        "input": "[1,1,1,1]",
+        "output": "1"
+      },
+      {
+        "input": "[]",
+        "output": "0"
+      }
+    ],
+    "codeStubs": [
+      {
+        "language": "PYTHON",
+        "startSnippet": "class Solution:\n",
+        "endSnippet": "",
+        "userSnippet": "    def removeDuplicates(self, nums):\n        # your code here"
+      },
+      {
+        "language": "JAVA",
+        "startSnippet": "public class Solution {",
+        "endSnippet": "}",
+        "userSnippet": "    public int removeDuplicates(int[] nums) {\n        // your code here\n    }"
+      },
+      {
+        "language": "CPP",
+        "startSnippet": "#include <vector>\nclass Solution {\npublic:",
+        "endSnippet": "\n};",
+        "userSnippet": "    int removeDuplicates(std::vector<int>& nums) {\n        // your code here\n    }"
+      }
+    ],
+    "editorial": "Use two pointers technique - one to iterate through the array and another to track the position where unique elements should be placed."
+  },
+  {
+    "title": "Climbing Stairs",
+    "description": "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+    "difficulty": "easy",
+    "testcases": [
+      {
+        "input": "2",
+        "output": "2"
+      },
+      {
+        "input": "3",
+        "output": "3"
+      },
+      {
+        "input": "4",
+        "output": "5"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      },
+      {
+        "input": "5",
+        "output": "8"
+      }
+    ],
+    "codeStubs": [
+      {
+        "language": "PYTHON",
+        "startSnippet": "class Solution:\n",
+        "endSnippet": "",
+        "userSnippet": "    def climbStairs(self, n):\n        # your code here"
+      },
+      {
+        "language": "JAVA",
+        "startSnippet": "public class Solution {",
+        "endSnippet": "}",
+        "userSnippet": "    public int climbStairs(int n) {\n        // your code here\n    }"
+      },
+      {
+        "language": "CPP",
+        "startSnippet": "class Solution {\npublic:",
+        "endSnippet": "\n};",
+        "userSnippet": "    int climbStairs(int n) {\n        // your code here\n    }"
+      }
+    ],
+    "editorial": "This is a classic dynamic programming problem. The number of ways to reach step n is the sum of ways to reach step n-1 and step n-2."
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.",
+    "difficulty": "easy",
+    "testcases": [
+      {
+        "input": "[7,1,5,3,6,4]",
+        "output": "5"
+      },
+      {
+        "input": "[7,6,4,3,1]",
+        "output": "0"
+      },
+      {
+        "input": "[1,2,3,4,5]",
+        "output": "4"
+      },
+      {
+        "input": "[2,4,1]",
+        "output": "2"
+      },
+      {
+        "input": "[3,2,6,5,0,3]",
+        "output": "4"
+      }
+    ],
+    "codeStubs": [
+      {
+        "language": "PYTHON",
+        "startSnippet": "class Solution:\n",
+        "endSnippet": "",
+        "userSnippet": "    def maxProfit(self, prices):\n        # your code here"
+      },
+      {
+        "language": "JAVA",
+        "startSnippet": "public class Solution {",
+        "endSnippet": "}",
+        "userSnippet": "    public int maxProfit(int[] prices) {\n        // your code here\n    }"
+      },
+      {
+        "language": "CPP",
+        "startSnippet": "#include <vector>\nclass Solution {\npublic:",
+        "endSnippet": "\n};",
+        "userSnippet": "    int maxProfit(std::vector<int>& prices) {\n        // your code here\n    }"
+      }
+    ],
+    "editorial": "Keep track of the minimum price seen so far and calculate the maximum profit that can be obtained by selling at the current price."
+  },
+  {
+    "title": "Single Number",
+    "description": "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one. You must implement a solution with a linear runtime complexity and use only constant extra space.",
+    "difficulty": "easy",
+    "testcases": [
+      {
+        "input": "[2,2,1]",
+        "output": "1"
+      },
+      {
+        "input": "[4,1,2,1,2]",
+        "output": "4"
+      },
+      {
+        "input": "[1]",
+        "output": "1"
+      },
+      {
+        "input": "[1,1,2,2,3]",
+        "output": "3"
+      },
+      {
+        "input": "[7,3,5,3,7]",
+        "output": "5"
+      }
+    ],
+    "codeStubs": [
+      {
+        "language": "PYTHON",
+        "startSnippet": "class Solution:\n",
+        "endSnippet": "",
+        "userSnippet": "    def singleNumber(self, nums):\n        # your code here"
+      },
+      {
+        "language": "JAVA",
+        "startSnippet": "public class Solution {",
+        "endSnippet": "}",
+        "userSnippet": "    public int singleNumber(int[] nums) {\n        // your code here\n    }"
+      },
+      {
+        "language": "CPP",
+        "startSnippet": "#include <vector>\nclass Solution {\npublic:",
+        "endSnippet": "\n};",
+        "userSnippet": "    int singleNumber(std::vector<int>& nums) {\n        // your code here\n    }"
+      }
+    ],
+    "editorial": "Use XOR operation. XOR of a number with itself is 0, and XOR of a number with 0 is the number itself. XOR all numbers in the array."
+  }
+] 
