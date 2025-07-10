@@ -1,5 +1,5 @@
 import express from 'express';
-import problemController from '../controllers/problemController.js';
+import * as problemController from '../controllers/problemController.js';
 import { authenticate, requireAdmin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
