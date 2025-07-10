@@ -75,7 +75,7 @@ jobs:
           --name problem-service \
           --restart unless-stopped \
           --env-file /var/www/problem-service/.env \
-          -p 3000:5000 \
+          -p 5000:5000 \
           ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_TAG }}
         
     - name: Check container status
@@ -94,7 +94,7 @@ jobs:
       run: |
         echo "Performing health check..."
         for i in {1..30}; do
-          if curl -f http://localhost:3000/health > /dev/null 2>&1; then
+          if curl -f http://localhost:5000/health > /dev/null 2>&1; then
             echo "Health check passed!"
             exit 0
           fi
