@@ -1,10 +1,10 @@
-const User = require('../models/User');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
 
@@ -27,7 +27,7 @@ exports.signup = async (req, res) => {
     }
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -49,7 +49,7 @@ exports.login = async (req, res) => {
     }
 };
 
-exports.getProfile = async (req, res) => {
+export const getProfile = async (req, res) => {
     try {
         if (!req.user) return res.status(401).json({ message: 'Unauthorized' });
         res.json(req.user);

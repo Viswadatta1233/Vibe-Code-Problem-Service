@@ -1,10 +1,10 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
 
 // Auth middleware: verifies JWT and attaches user to req
-exports.authenticate = async (req, res, next) => {
+export const authenticate = async (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res.status(401).json({ message: 'No token provided' });
@@ -21,7 +21,7 @@ exports.authenticate = async (req, res, next) => {
 };
 
 // Admin middleware: only allows admin users
-exports.requireAdmin = (req, res, next) => {
+export const requireAdmin = (req, res, next) => {
     if (req.user && req.user.role === 'admin') {
         next();
     } else {

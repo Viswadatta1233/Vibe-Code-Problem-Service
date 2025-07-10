@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import problemController from '../controllers/problemController.js';
+import { authenticate, requireAdmin } from '../middleware/authMiddleware.js';
+
 const router = express.Router();
-const problemController = require('../controllers/problemController');
-const { authenticate, requireAdmin } = require('../middleware/authMiddleware');
 
 // Public: Get all problems, get by id
 router.get('/', problemController.getProblems);
@@ -12,4 +13,4 @@ router.post('/', authenticate, requireAdmin, problemController.createProblem);
 router.put('/:id', authenticate, requireAdmin, problemController.updateProblem);
 router.delete('/:id', authenticate, requireAdmin, problemController.deleteProblem);
 
-module.exports = router;
+export default router;

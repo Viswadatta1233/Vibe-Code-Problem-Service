@@ -77,11 +77,18 @@ jobs:
           --env-file /var/www/problem-service/.env \
           -p 3000:3000 \
           ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_TAG }}
-          
+        
+    - name: Check container status
+      run: |
+        echo "Container status:"
+        docker ps -a
+        echo "Container logs:"
+        docker logs problem-service
+        
     - name: Wait for container to be ready
       run: |
         echo "Waiting for container to start..."
-        sleep 10
+        sleep 15
         
     - name: Health check
       run: |
