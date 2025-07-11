@@ -8,6 +8,10 @@ import problemRoutes from './routes/problemRoutes.js';
 // Load env vars
 dotenv.config();
 
+console.log('🚀 [PROBLEM-SERVICE] Starting Problem Service...');
+console.log('🔧 [PROBLEM-SERVICE] Environment variables loaded');
+console.log('🔧 [PROBLEM-SERVICE] JWT_SECRET:', process.env.JWT_SECRET || 'your_jwt_secret');
+
 const app = express();
 
 // CORS configuration
@@ -20,8 +24,19 @@ app.use(cors({
 
 app.use(express.json());
 
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log(`📨 [PROBLEM-SERVICE] ${req.method} ${req.path} - ${new Date().toISOString()}`);
+  console.log(`📨 [PROBLEM-SERVICE] Headers:`, JSON.stringify(req.headers, null, 2));
+  if (req.body && Object.keys(req.body).length > 0) {
+    console.log(`📨 [PROBLEM-SERVICE] Body:`, JSON.stringify(req.body, null, 2));
+  }
+  next();
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
+  console.log('🏥 [PROBLEM-SERVICE] Health check requested');
   res.status(200).json({ 
     status: 'OK', 
     timestamp: new Date().toISOString(),
@@ -37,10 +52,19 @@ app.use('/api/problems', problemRoutes);
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
+console.log('🔗 [PROBLEM-SERVICE] Connecting to MongoDB...');
+console.log('🔗 [PROBLEM-SERVICE] MONGO_URI:', MONGO_URI);
+
 mongoose.connect(MONGO_URI)
     .then(() => {
-        app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+        console.log('✅ [PROBLEM-SERVICE] MongoDB connected successfully');
+        app.listen(PORT, () => {
+          console.log(`🚀 [PROBLEM-SERVICE] Server running on port ${PORT}`);
+          console.log(`🔗 [PROBLEM-SERVICE] Health check: http://localhost:${PORT}/health`);
+          console.log(`🔗 [PROBLEM-SERVICE] Auth endpoints: http://localhost:${PORT}/api/auth`);
+          console.log(`🔗 [PROBLEM-SERVICE] Problem endpoints: http://localhost:${PORT}/api/problems`);
+        });
     })
     .catch(err => {
-        console.error('MongoDB connection error:', err);
+        console.error('❌ [PROBLEM-SERVICE] MongoDB connection error:', err);
     });
