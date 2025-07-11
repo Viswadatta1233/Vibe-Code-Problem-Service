@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
+const JWT_SECRET = 'your_jwt_secret';
 
 // Auth middleware: verifies JWT and attaches user to req
 export const authenticate = async (req, res, next) => {
